@@ -10,12 +10,12 @@ syntax keyword shellSpecKeyWords contained When nextgroup=shellSpecKeyWords2
 syntax keyword shellSpecKeyWords2 contained call run nextgroup=shellSpecKeyWords3
 syntax keyword shellSpecKeyWords3 contained command script source
 
-syntax keyword shellSpecSubjects stdout output line word stderr status path file directory value function variable
+syntax keyword shellSpecSubjects contained stdout output line word stderr status path file directory value function variable
 
-syntax keyword shellSpecModifiers line lines word length contents result
-syntax keyword shellSpecModifiers of should equal eq
+syntax keyword shellSpecModifiers contained line lines word length contents result
+syntax keyword shellSpecModifiers contained of should equal eq
 
-syntax keyword shellSpecMatchers satisfy exist be exist file directory empty empty symlink pipe socket readable writable executable block_device character_device has have setgid setgid setuid setuid
+syntax keyword shellSpecMatchers contained satisfy exist be exist file directory empty empty symlink pipe socket readable writable executable block_device character_device has have setgid setgid setuid setuid
 
 hi def link shellSpecKeyWords Function
 hi def link shellSpecKeyWords2 Statement

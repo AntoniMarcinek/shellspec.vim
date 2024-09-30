@@ -26,10 +26,6 @@ function! GetShellSpecIndent()
     let ind -= &shiftwidth
   endif
 
-  " Special handling for directives
-  if line =~# '^\s*%\(text\|const\|puts\|printf\)\>'
-    let ind += &shiftwidth
-  endif
 
   return ind
 endfunction

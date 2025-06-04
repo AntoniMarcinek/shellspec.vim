@@ -8,7 +8,7 @@ function! GetShellSpecIndent()
   let ind = indent(lnum)
   let line = getline(lnum)
 
-  if line =~# '^\s*\(Describe\|Context\|Mock\|It\)\>'
+  if line =~# '^\s*\(Describe\|ExampleGroup\|Context\|Mock\|It\)\>'
     let ind += &shiftwidth
   endif
 

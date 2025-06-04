@@ -32,7 +32,7 @@ au BufWritePre *_spec.sh call s:FormatParagraphs()
 
 function! ShellspecFolds()
     let thisline = getline(v:lnum)
-    if match(thisline, '^\s*\(Describe\|It\|Mock\)') >= 0
+    if match(thisline, '^\s*\(Describe\|ExampleGroup\|Context\|Mock\|It\)') >= 0
         return "a1"
     elseif match(thisline, '^\s*\(End\)') >= 0
         return "s1"

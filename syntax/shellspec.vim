@@ -1,13 +1,13 @@
 syntax keyword shellSpecKeyWords End
 syntax keyword shellSpecKeyWords ExampleGroup Describe Context
 syntax keyword shellSpecKeyWords Example It Specify
-syntax keyword shellSpecKeyWords After
+syntax keyword shellSpecKeyWords After AfterEach
 syntax keyword shellSpecKeyWords Mock The Data Parameters
 syntax keyword shellSpecKeyWords When nextgroup=shellSpecKeyWords2
 syntax keyword shellSpecKeyWords2 call run nextgroup=shellSpecKeyWords3
 syntax keyword shellSpecKeyWords3 command script source
 
-syntax keyword shellSpecSubjects stdout output line word stderr status path file directory value function variable
+syntax keyword shellSpecSubjects stdout output line word stderr error status path file directory value function variable
 
 syntax keyword shellSpecModifiers line lines word length contents result
 syntax keyword shellSpecModifiers of should equal eq include
@@ -17,9 +17,9 @@ syntax keyword shellSpecModifiers3 number funcname
 
 syntax keyword shellSpecMatchers satisfy exist be exist file directory empty empty symlink pipe socket readable writable executable block_device character_device has have setgid setgid setuid setuid
 
-syntax keyword shellSpecHooks Before After BeforeAll AfterAll BeforeCall AfterCall BeforeRun AfterRun
+syntax keyword shellSpecHooks Before BeforeEach After AfterEach BeforeAll AfterAll BeforeCall AfterCall BeforeRun AfterRun
 
-syntax match shellSpecDirectives "[%]\(const\|text\|putsn\|=\|-\|puts\|logger\|preserve\)"
+syntax match shellSpecDirectives "[%]\(const\|text\|putsn\|=\|-\|puts\|logger\|preserve\)" containedin=ALL
 
 hi def link shellSpecKeyWords Function
 hi def link shellSpecKeyWords2 Statement

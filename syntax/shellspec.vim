@@ -7,7 +7,7 @@ syntax keyword shellSpecKeyWords When nextgroup=shellSpecKeyWords2
 syntax keyword shellSpecKeyWords2 call run nextgroup=shellSpecKeyWords3
 syntax keyword shellSpecKeyWords3 command script source
 
-syntax keyword shellSpecSubjects stdout output line word stderr status path file directory value function variable
+syntax keyword shellSpecSubjects stdout output line word stderr error status path file directory value function variable
 
 syntax keyword shellSpecModifiers line lines word length contents result
 syntax keyword shellSpecModifiers of should equal eq include
@@ -19,7 +19,7 @@ syntax keyword shellSpecMatchers satisfy exist be exist file directory empty emp
 
 syntax keyword shellSpecHooks Before BeforeEach After AfterEach BeforeAll AfterAll BeforeCall AfterCall BeforeRun AfterRun
 
-syntax match shellSpecDirectives "[%]\(const\|text\|putsn\|=\|-\|puts\|logger\|preserve\)"
+syntax match shellSpecDirectives "[%]\(const\|text\|putsn\|=\|-\|puts\|logger\|preserve\)" containedin=ALL
 
 hi def link shellSpecKeyWords Function
 hi def link shellSpecKeyWords2 Statement

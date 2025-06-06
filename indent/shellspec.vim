@@ -43,3 +43,4 @@ endfunction
 
 " Set the indentexpr for shellspec filetype
 setlocal indentexpr=GetShellSpecIndent()
+setlocal indentkeys+=0=End

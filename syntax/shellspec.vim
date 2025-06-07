@@ -64,9 +64,8 @@ hi def link shellSpecExample shellSpecExampleGroup
 hi def link shellSpecHelpersComplex Special
 hi def link shellSpecHelpersSimple shellSpecHelpersComplex
 
-hi def link shellSpecEvaluationStart Function
-
-hi def link shellSpecEvaluation2 Statement
+hi def link shellSpecEvaluationStart Question
+hi def link shellSpecEvaluation2 shellSpecEvaluationStart
 hi def link shellSpecEvaluation3 shellSpecEvaluation2
 
 hi def link shellSpecExpectationStart Question
@@ -75,7 +74,7 @@ hi def link shellSpecExpectationShould shellSpecExpectationStart
 hi def link shellSpecSimpleSubjects Identifier
 hi def link shellSpecComplexSubjects shellSpecSimpleSubjects
 
-hi def link shellSpecModifiers Operator
+hi def link shellSpecModifiers shellSpecSimpleSubjects
 hi def link shellSpecModifiersOrdinals shellSpecModifiers
 hi def link shellSpecModifiersShorthand shellSpecModifiers
 hi def link shellSpecModifiersOf shellSpecModifiers

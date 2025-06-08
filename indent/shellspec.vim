@@ -15,7 +15,7 @@ function! GetShellSpecIndent()
   let exampleGroup = '\<[fx]\?\(ExampleGroup\|Describe\|Context\)\>'
   let example = '\<[fx]\?\(Example\|It\|Specify\)\>'
   let helper = '^\s*\(Mock\s\+.*\|Data\(:raw\|:expand\)\?\(\s\+|.*\)\?\|Parameters\(:block\|:matrix\|:dynamic\)\?\)\s*$'
-  let hookOpen = '\(Before\|BeforeEach\|After\|AfterEach\|BeforeAll\|AfterAll\|BeforeCall\|AfterCall\|BeforeRun\|AfterRun\)\s*[''"]\s*{[^}]*$'
+  let hookOpen = '\<\(Before\|BeforeEach\|After\|AfterEach\|BeforeAll\|AfterAll\|BeforeCall\|AfterCall\|BeforeRun\|AfterRun\)\s*[''"]\s*{[^}]*$'
 
   let end = '^\s*End\>'
   let hookClose = '^\s*}\s*[''"]'

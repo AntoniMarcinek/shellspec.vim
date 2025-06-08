@@ -14,7 +14,7 @@ syntax region shellSpecExampleRegion matchgroup=shellSpecExample start="\<[fx]\?
 """ Helpers {{{1
 syntax cluster shellSpecHelpers contains=shellSpecHelpersComplexRegion,shellSpecHelpersSimple
 syntax region shellSpecHelpersComplexRegion matchgroup=shellSpecHelpersComplex start="^\s*\(Mock\s\+.*\|Data\(:raw\|:expand\)\?\(\s\+|.*\)\?\|Parameters\(:block\|:matrix\|:dynamic\)\?\)\s*$" end="End" fold contains=@shellSpecEverywhere
-syntax match shellSpecHelpersSimple "\(Skip\(\s\+if\)\?\|Pending\|Todo\|Data\|Parameters:value\|Include\|Path\|File\|Dir\|Intercept\|Set\|Dump\)"
+syntax match shellSpecHelpersSimple "\<\(Skip\(\s\+if\)\?\|Pending\|Todo\|Data\|Parameters:value\|Include\|Path\|File\|Dir\|Intercept\|Set\|Dump\)\>"
 
 
 """ Evaluation {{{1
@@ -51,7 +51,7 @@ syntax match shellSpecHasMathers "\(has\|have\)\s\+\(setgid\|setuid\)\>" contain
 
 
 """ Hooks {{{1
-syntax region shellSpecHooksRegion matchgroup=shellSpecHooks start="\(Before\|BeforeEach\|After\|AfterEach\|BeforeAll\|AfterAll\|BeforeCall\|AfterCall\|BeforeRun\|AfterRun\)\s*['"]" end="['"]" fold contains=@Shell
+syntax region shellSpecHooksRegion matchgroup=shellSpecHooks start="\<\(Before\|BeforeEach\|After\|AfterEach\|BeforeAll\|AfterAll\|BeforeCall\|AfterCall\|BeforeRun\|AfterRun\)\s*['"]" end="['"]" fold contains=@Shell
 
 """ Directives {{{1
 syntax match shellSpecDirectives "%\(const\|text\|putsn\|=\|-\|puts\|printf\|sleep\|preserve\|logger\|data\)\>" containedin=@Shell

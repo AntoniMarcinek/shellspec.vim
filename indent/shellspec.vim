@@ -6,39 +6,52 @@ function! GetShellSpecIndent()
   endif
 
   let line = getline(lnum)
-
-  if exists("*GetShIndent")
-    " Handle shell script indentation within spec files
-    let ind = GetShIndent()
-  else
-    let ind = indent(lnum)
-  endif
+  let curline = getline(v:lnum)
+  let ind = indent(lnum)
 
 
-  " Handle shellspec-specific indentation
-  if line =~# '^\s*\(Describe\|ExampleGroup\|Context\|Mock\|It\)\>'
+  """ First handle shellspec-specific indentation
+
+  let exampleGroup = '\<[fx]\?\(ExampleGroup\|Describe\|Context\)\>'
+  let example = '\<[fx]\?\(Example\|It\|Specify\)\>'
+  let helper = '^\s*\(Mock\s\+.*\|Data\(:raw\|:expand\)\?\(\s\+|.*\)\?\|Parameters\(:block\|:matrix\|:dynamic\)\?\)\s*$'
+  let hookOpen = '\<\(Before\|BeforeEach\|After\|AfterEach\|BeforeAll\|AfterAll\|BeforeCall\|AfterCall\|BeforeRun\|AfterRun\)\s*[''"]\s*{[^}]*$'
+
+  let end = '^\s*End\>'
+  let hookClose = '^\s*}\s*[''"]'
+
+  let lineAdds = line =~# '\('..exampleGroup..'\|'..example..'\|'..helper..'\|'..hookOpen..'\)'
+  let curlineDecreases = curline =~# '\('..end..'\|'..hookClose..'\)'
+
+  if lineAdds
     let ind += &shiftwidth
   endif
 
-  " Decrease indent for End
-  if getline(v:lnum) =~# '^\s*End\>'
+  if curlineDecreases
     let ind -= &shiftwidth
   endif
 
+  if lineAdds || curlineDecreases
+    return ind
+  endif
 
-  " Fallback for handling shell script indentation within spec files
-  if !exists("*GetShIndent")
+
+
+  """ Next handle sh indentation
+  if exists("*GetShIndent")
+    return GetShIndent()
+  else
     if line =~# '{\s*$'
       let ind += &shiftwidth
     endif
 
-    if getline(v:lnum) =~# '^\s*}\s*$'
+    if curline =~# '^\s*}\s*$'
       let ind -= &shiftwidth
     endif
+
+    return ind
   endif
 
-
-  return ind
 endfunction
 
 " Set the indentexpr for shellspec filetype
